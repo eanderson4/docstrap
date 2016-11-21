@@ -15,8 +15,8 @@ function getTagValue(tags,name){
 
 
 function enrichTemplate(item){
-    if (item.kind=="member"){
-	console.log("Member: ",item.longname);
+    if (item.kind=="member" || item.kind=="function"){
+	console.log(item.kind,":",item.longname);
 	var name = getTagValue(item.tags,"template");
 	if(name){
 	    var path = item.meta.path + '/'+name;
