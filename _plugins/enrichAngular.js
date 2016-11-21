@@ -15,8 +15,8 @@ function getTagValue(tags,name){
 
 
 function enrichTemplate(item){
-    if (item.kind=="member" || item.kind=="function"){
-	console.log(item.kind,":",item.longname);
+    if (item.kind=="member"){
+	console.log("Member: ",item.longname);
 	var name = getTagValue(item.tags,"template");
 	if(name){
 	    var path = item.meta.path + '/'+name;
@@ -30,8 +30,8 @@ function enrichTemplate(item){
     return item;
 }
 function enrichNgType(item){
-    if (item.kind=="member"){
-	console.log("Member: ",item.longname);
+    if (item.kind=="member" || item.kind=="function"){
+	console.log(item.kind,":",item.longname);
 	var ngType = getTagValue(item.tags,"ngtype");
 	if(ngType){
 	    console.log("Have NG Type",ngType);
